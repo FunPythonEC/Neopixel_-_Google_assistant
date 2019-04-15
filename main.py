@@ -145,8 +145,8 @@ def cb(topic, msg):
 #CONEXION A LA RED WIFI
 #########################
 # Informacion de la red WiFi
-WIFI_SSID = 'J-PC'
-WIFI_PASSWORD = 'jp12345678'
+WIFI_SSID = 'ssid'
+WIFI_PASSWORD = 'pass'
 
 # apagar el punto de acceso WiFi
 ap_if = network.WLAN(network.AP_IF)
@@ -186,9 +186,9 @@ mqtt_client_id = bytes('esp_32', 'utf-8')
 #    Advertencia: una conexión segura usa aproximadamente 9k bytes de la pila
 #          (aproximadamente 1/4 de la pila de micropython en la plataforma ESP8266)
 ADAFRUIT_IO_URL = b'io.adafruit.com' 
-ADAFRUIT_USERNAME = b'jhon_p16'
-ADAFRUIT_IO_KEY = b'50f55bdf3ee849bbad1c564d1136da97'
-ADAFRUIT_IO_FEEDNAME = b'led_strip'
+ADAFRUIT_USERNAME = b'username'
+ADAFRUIT_IO_KEY = b'key_xxxxxx'
+ADAFRUIT_IO_FEEDNAME = b'feedname'
 
 client = MQTTClient(client_id=mqtt_client_id, 
                     server=ADAFRUIT_IO_URL, 
@@ -204,7 +204,7 @@ except Exception as e:
     sys.exit()
 
 
-mqtt_feedname = bytes('jhon_p16/feeds/led-strip', 'utf-8')
+mqtt_feedname = bytes('user/feeds/name, 'utf-8')
 client.set_callback(cb)                    
 client.subscribe(mqtt_feedname)  
 
